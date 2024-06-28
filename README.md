@@ -27,7 +27,7 @@ Simple application to change the background of Teams for Linux using Java and Sp
 
 ## License
 
-This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)](https://creativecommons.org/licenses/by-nc-sa/4.0/) License. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. If you remix, adapt, or build upon the material, you must license the modified material under identical terms.
+This project is licensed under the [Creative Commons Attribution](CC BY](https://creativecommons.org/licenses/by/4.0/) License. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use
 
 ## Contribution
 
