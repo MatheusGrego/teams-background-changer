@@ -1,6 +1,6 @@
+
 package com.grego.linux_images_server.ui;
 
-import com.grego.linux_images_server.LinuxImagesServerApplication;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
@@ -9,28 +9,25 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
+import org.springframework.context.annotation.ComponentScan;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
+@SpringBootApplication
+@ComponentScan(basePackages = "com.grego.linux_images_server")
 public class BackgroundChangerUI extends JFrame {
     private final GradientPanel mainPanel;
     private final JButton startAppButton;
@@ -167,7 +164,7 @@ public class BackgroundChangerUI extends JFrame {
     private void toggleApp() {
         if (springContext == null) {
             Executors.newSingleThreadExecutor().submit(() -> {
-                springContext = SpringApplication.run(LinuxImagesServerApplication.class);
+                springContext = SpringApplication.run(BackgroundChangerUI.class);
                 EventQueue.invokeLater(() -> {
                     serverStatusLabel.setText("Spring Server: Running");
                     startAppButton.setText("Stop Spring server");
@@ -187,11 +184,10 @@ public class BackgroundChangerUI extends JFrame {
             serverStatusLabel.setText("Spring Server: Stopped");
             startAppButton.setText("Start Spring server");
             logTextArea.append("Spring Server stopped...\n");
-
             if (teamsProcess != null) {
                 teamsProcess.destroy();
-                logTextArea.append("teams-for-linux stopped...\n");
                 teamsProcess = null;
+                logTextArea.append("teams-for-linux stopped...\n");
             }
         }
     }
@@ -200,19 +196,19 @@ public class BackgroundChangerUI extends JFrame {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpPost uploadFile = new HttpPost("http://localhost:8080/upload");
             MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-            builder.addBinaryBody("file", imagePath.toFile(), ContentType.APPLICATION_OCTET_STREAM, imagePath.getFileName().toString());
+            builder.addBinaryBody("file", new FileInputStream(imagePath.toFile()), ContentType.APPLICATION_OCTET_STREAM, imagePath.getFileName().toString());
             uploadFile.setEntity(builder.build());
 
             HttpResponse response = httpClient.execute(uploadFile);
             String responseString = EntityUtils.toString(response.getEntity());
-            logTextArea.append("Upload response: " + responseString + "\n");
+            logTextArea.append("Response: " + responseString + "\n");
         }
     }
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            BackgroundChangerUI frame = new BackgroundChangerUI();
-            frame.setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+            BackgroundChangerUI ui = new BackgroundChangerUI();
+            ui.setVisible(true);
         });
     }
 
