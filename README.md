@@ -14,7 +14,13 @@ Simple application to change the background of Teams for Linux using Java and Sp
    - You can download the application from the [Releases](https://github.com/your/teams-background-changer/releases) .
    - Run the application's JAR file using the following command:
      ```sh
-     java -jar TeamsBackgroundChanger-*.jar
+     java -jar teams-background-changer-*.jar
+     ```
+   - or you can run it from "start.sh".
+   - Apply the permissions using `chmod +x start.sh`
+   - Run the provided shell script to start the application with optimized JVM parameters.
+     ```sh
+      ./start.sh
      ```
 
 2. **Start the Spring Server:**
@@ -27,7 +33,7 @@ Simple application to change the background of Teams for Linux using Java and Sp
 
 ## License
 
-This project is licensed under the [Creative Commons Attribution](CC BY](https://creativecommons.org/licenses/by/4.0/) License. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use
+This project is licensed under the [Creative Commons Attribution(CC BY)](https://creativecommons.org/licenses/by/4.0/) License. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use
 
 ## Contribution
 
