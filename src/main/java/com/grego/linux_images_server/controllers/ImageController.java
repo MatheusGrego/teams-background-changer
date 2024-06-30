@@ -1,6 +1,7 @@
 package com.grego.linux_images_server.controllers;
 
 import com.grego.linux_images_server.models.Image;
+import com.grego.linux_images_server.service.ImageService;
 import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -24,36 +25,19 @@ import java.util.List;
 public class ImageController {
 
     private final ResourceLoader resourceLoader;
+    private final ImageService imageService;
 
     @Value("${upload.directory}")
     private String uploadDirectory;
 
-    public ImageController(ResourceLoader resourceLoader) {
+    public ImageController(ResourceLoader resourceLoader, ImageService imageService) {
         this.resourceLoader = resourceLoader;
+        this.imageService = imageService;
     }
 
     @GetMapping("/config.json")
     public ResponseEntity<?> getConfigJson() throws IOException {
-        List<Image> videoBackgroundImages = new ArrayList<>();
-        File directory = new File(uploadDirectory);
-        if (directory.exists() && directory.isDirectory()) {
-            File[] files = directory.listFiles((dir, name) -> name.toLowerCase().endsWith(".png") ||
-                    name.toLowerCase().endsWith(".jpg") ||
-                    name.toLowerCase().endsWith(".jpeg"));
-            if (files != null) {
-                for (File file : files) {
-                    String fileName = file.getName();
-                    if (!fileName.contains("_thumb")) {
-                        String fileType = getFileExtension(fileName);
-                        String id = "Custom_" + fileName.replaceAll("\\s+", "_");
-                        String src = "/evergreen-assets/backgroundimages/" + fileName;
-                        String thumbSrc = "/evergreen-assets/backgroundimages/" + getThumbnailName(fileName);
-                        generateThumbnail(file.toPath());
-                        videoBackgroundImages.add(new Image(fileType, id, fileName, src, thumbSrc));
-                    }
-                }
-            }
-        }
+        List<Image> videoBackgroundImages = this.imageService.listVideoBackgroundImages();
 
         if (videoBackgroundImages.isEmpty()) {
             return new ResponseEntity<>("No images found", HttpStatus.NOT_FOUND);
