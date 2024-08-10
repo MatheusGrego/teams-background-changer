@@ -2,6 +2,7 @@ package com.grego.linux_images_server.controllers;
 
 import com.grego.linux_images_server.models.Image;
 import com.grego.linux_images_server.service.ImageService;
+import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -19,7 +20,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+@Slf4j
 @RestController
 @CrossOrigin(origins = "*")
 public class ImageController {
@@ -84,21 +87,13 @@ public class ImageController {
         }
 
         try {
-            Path filePath = Paths.get(uploadDirectory).resolve(file.getOriginalFilename());
+            Path filePath = Paths.get(uploadDirectory).resolve(Objects.requireNonNull(file.getOriginalFilename()));
             file.transferTo(filePath);
             generateThumbnail(filePath);
             return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file: " + e.getMessage());
         }
-    }
-
-    private String getFileExtension(String fileName) {
-        int lastIndexOfDot = fileName.lastIndexOf('.');
-        if (lastIndexOfDot == -1) {
-            return "";
-        }
-        return fileName.substring(lastIndexOfDot + 1);
     }
 
     private String getThumbnailName(String fileName) {
@@ -118,7 +113,7 @@ public class ImageController {
                     .size(200, 200)
                     .toFile(thumbnailPath.toFile());
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
     }
 
