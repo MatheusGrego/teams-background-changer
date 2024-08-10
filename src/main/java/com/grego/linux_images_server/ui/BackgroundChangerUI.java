@@ -1,6 +1,7 @@
 
 package com.grego.linux_images_server.ui;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
@@ -28,11 +29,9 @@ import java.util.concurrent.Executors;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.grego.linux_images_server")
+@Log4j2
 public class BackgroundChangerUI extends JFrame {
-    private final GradientPanel mainPanel;
     private final JButton startAppButton;
-    private final JButton selectImageButton;
-    private final JLabel titleLabel;
     private final JLabel serverStatusLabel;
     private final JTextArea logTextArea;
     private ConfigurableApplicationContext springContext;
@@ -43,7 +42,9 @@ public class BackgroundChangerUI extends JFrame {
     public BackgroundChangerUI() {
         File uploadDir = new File(UPLOAD_DIRECTORY);
         if (!uploadDir.exists()) {
-            uploadDir.mkdir();
+            if (uploadDir.mkdir())
+                log.info("Upload directory created successfully!");
+
         }
 
         setTitle("Teams Background Changer");
@@ -57,27 +58,10 @@ public class BackgroundChangerUI extends JFrame {
         contentPanel.setBorder(BorderFactory.createLineBorder(new Color(75, 0, 130), 5));
         setContentPane(contentPanel);
 
-        mainPanel = new GradientPanel();
+        GradientPanel mainPanel = new GradientPanel();
         mainPanel.setLayout(null);
 
-        JPanel headerPanel = new GradientHeaderPanel();
-        headerPanel.setBounds(0, 0, 600, 50);
-        headerPanel.setLayout(null);
-
-        titleLabel = new JLabel("Teams Background Changer");
-        titleLabel.setForeground(Color.WHITE);
-        titleLabel.setFont(new Font("Josefin Sans", Font.BOLD, 16));
-        titleLabel.setBounds(10, 10, 250, 30);
-        headerPanel.add(titleLabel);
-
-        JButton closeButton = new JButton("...");
-        closeButton.setBackground(new Color(235, 5, 90));
-        closeButton.setBounds(560, 10, 30, 30);
-        closeButton.setFocusPainted(false);
-        closeButton.setForeground(Color.WHITE);
-        closeButton.setBorderPainted(false);
-        closeButton.addActionListener(e -> dispose());
-        headerPanel.add(closeButton);
+        JPanel headerPanel = getjPanel();
 
         mainPanel.add(headerPanel);
 
@@ -95,7 +79,7 @@ public class BackgroundChangerUI extends JFrame {
         startAppButton.setFont(new Font("Josefin Sans", Font.PLAIN, 14));
         mainPanel.add(startAppButton);
 
-        selectImageButton = new JButton("Select background");
+        JButton selectImageButton = new JButton("Select background");
         selectImageButton.setBounds(320, 150, 180, 50);
         selectImageButton.setBackground(new Color(83, 75, 105));
         selectImageButton.setForeground(Color.WHITE);
@@ -161,34 +145,94 @@ public class BackgroundChangerUI extends JFrame {
         });
     }
 
+    private JPanel getjPanel() {
+        JPanel headerPanel = new GradientHeaderPanel();
+        headerPanel.setBounds(0, 0, 600, 50);
+        headerPanel.setLayout(null);
+
+        JLabel titleLabel = new JLabel("Teams Background Changer");
+        titleLabel.setForeground(Color.WHITE);
+        titleLabel.setFont(new Font("Josefin Sans", Font.BOLD, 16));
+        titleLabel.setBounds(10, 10, 250, 30);
+        headerPanel.add(titleLabel);
+
+        JButton closeButton = new JButton("...");
+        closeButton.setBackground(new Color(235, 5, 90));
+        closeButton.setBounds(560, 10, 30, 30);
+        closeButton.setFocusPainted(false);
+        closeButton.setForeground(Color.WHITE);
+        closeButton.setBorderPainted(false);
+        closeButton.addActionListener(e -> dispose());
+        headerPanel.add(closeButton);
+        return headerPanel;
+    }
+
     private void toggleApp() {
         if (springContext == null) {
-            Executors.newSingleThreadExecutor().submit(() -> {
-                springContext = SpringApplication.run(BackgroundChangerUI.class);
-                EventQueue.invokeLater(() -> {
-                    serverStatusLabel.setText("Spring Server: Running");
-                    startAppButton.setText("Stop Spring server");
-                    logTextArea.append("Spring Server started...\n");
-                });
-
-                try {
-                    teamsProcess = Runtime.getRuntime().exec("teams-for-linux --customBGServiceBaseUrl=http://localhost:8080 --isCustomBackgroundEnabled=true");
-                    logTextArea.append("teams-for-linux started...\n");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+            startSpringServerAndTeamsForLinux();
         } else {
+            stopSpringServerAndTeamsForLinux();
+        }
+    }
+
+    private void startSpringServerAndTeamsForLinux() {
+        Executors.newSingleThreadExecutor().submit(() -> {
+            initializeSpringApplication();
+            startTeamsForLinux();
+        });
+    }
+
+    private void initializeSpringApplication() {
+        springContext = SpringApplication.run(BackgroundChangerUI.class);
+        updateUiComponentsOnServerStart();
+    }
+
+    private void updateUiComponentsOnServerStart() {
+        EventQueue.invokeLater(() -> {
+            serverStatusLabel.setText("Spring Server: Running");
+            startAppButton.setText("Stop Spring server");
+            logTextArea.append("Spring Server started...\n");
+        });
+    }
+
+    private void startTeamsForLinux() {
+        try {
+            teamsProcess =
+                    new ProcessBuilder(
+                            "teams-for-linux --customBGServiceBaseUrl=http://localhost:8080 --isCustomBackgroundEnabled=true"
+                    ).start();
+            logTextArea.append("teams-for-linux started...\n");
+            log.info("teams-for-linux started...");
+        } catch (IOException e) {
+            log.error("Failed to start teams-for-linux", e);
+            System.exit(1);
+        }
+    }
+
+    private void stopSpringServerAndTeamsForLinux() {
+        if (springContext != null) {
             springContext.close();
             springContext = null;
-            serverStatusLabel.setText("Spring Server: Stopped");
-            startAppButton.setText("Start Spring server");
+            updateUIComponentsOnServerStop();
             logTextArea.append("Spring Server stopped...\n");
-            if (teamsProcess != null) {
-                teamsProcess.destroy();
-                teamsProcess = null;
-                logTextArea.append("teams-for-linux stopped...\n");
-            }
+            log.info("Spring Server stopped...");
+        }
+        stopTeamsForLinuxIfRunning();
+    }
+
+    private void updateUIComponentsOnServerStop() {
+        serverStatusLabel.setText("Spring Server: Stopped");
+        startAppButton.setText("Start Spring server");
+        logTextArea.append("Spring Server stopped...\n");
+    }
+
+    private void stopTeamsForLinuxIfRunning() {
+        if (teamsProcess != null) {
+            teamsProcess.destroy();
+            teamsProcess = null;
+            logTextArea.append("teams-for-linux stopped...\n");
+            log.info("teams-for-linux stopped...");
+            System.exit(1);
         }
     }
 

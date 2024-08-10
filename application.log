@@ -1,0 +1,109 @@
+2024-08-09T21:59:29.969-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Starting application using Java 22.0.1 with PID 641 (started by matheusvictor in /home/matheusvictor/Documents/javaProjects/teams-background-changer)
+2024-08-09T21:59:29.970-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-08-09T21:59:30.349-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-09T21:59:30.361-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-09T21:59:30.362-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-08-09T21:59:30.381-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-09T21:59:30.381-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 392 ms
+2024-08-09T21:59:30.555-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-09T21:59:30.559-03:00  INFO 641 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Started application in 0.777 seconds (process running for 4.247)
+2024-08-09T21:59:52.095-03:00  INFO 641 --- [linux-images-server] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-09T21:59:52.096-03:00  INFO 641 --- [linux-images-server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-09T21:59:52.097-03:00  INFO 641 --- [linux-images-server] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-09T22:04:44.837-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Starting application using Java 22.0.1 with PID 808 (started by matheusvictor in /home/matheusvictor/Documents/javaProjects/teams-background-changer)
+2024-08-09T22:04:44.838-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-08-09T22:04:45.244-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-09T22:04:45.251-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-09T22:04:45.252-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-08-09T22:04:45.270-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-09T22:04:45.271-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 411 ms
+2024-08-09T22:04:45.469-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-09T22:04:45.475-03:00  INFO 808 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Started application in 0.818 seconds (process running for 3.516)
+2024-08-09T22:16:54.428-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Starting application using Java 22.0.1 with PID 992 (started by matheusvictor in /home/matheusvictor/Documents/javaProjects/teams-background-changer)
+2024-08-09T22:16:54.429-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-08-09T22:16:54.798-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-09T22:16:54.804-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-09T22:16:54.804-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-08-09T22:16:54.836-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-09T22:16:54.836-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 387 ms
+2024-08-09T22:16:55.009-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-09T22:16:55.013-03:00  INFO 992 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Started application in 0.763 seconds (process running for 3.724)
+2024-08-09T22:16:55.016-03:00 ERROR 992 --- [linux-images-server] [pool-1-thread-1] c.g.l.ui.BackgroundChangerUI             : Failed to start teams-for-linux
+
+java.io.IOException: Cannot run program "teams-for-linux": error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170) ~[na:na]
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089) ~[na:na]
+	at java.base/java.lang.Runtime.exec(Runtime.java:681) ~[na:na]
+	at java.base/java.lang.Runtime.exec(Runtime.java:491) ~[na:na]
+	at java.base/java.lang.Runtime.exec(Runtime.java:366) ~[na:na]
+	at com.grego.linux_images_server.ui.BackgroundChangerUI.lambda$toggleApp$4(BackgroundChangerUI.java:181) ~[classes/:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method) ~[na:na]
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295) ~[na:na]
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225) ~[na:na]
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126) ~[na:na]
+	... 10 common frames omitted
+
+2024-08-09T22:17:28.410-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Starting application using Java 22.0.1 with PID 1133 (started by matheusvictor in /home/matheusvictor/Documents/javaProjects/teams-background-changer)
+2024-08-09T22:17:28.411-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-08-09T22:17:28.776-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-09T22:17:28.782-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-09T22:17:28.782-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-08-09T22:17:28.800-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-09T22:17:28.800-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 369 ms
+2024-08-09T22:17:28.982-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-09T22:17:28.990-03:00  INFO 1133 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Started application in 0.752 seconds (process running for 2.435)
+2024-08-09T22:17:28.995-03:00 ERROR 1133 --- [linux-images-server] [pool-1-thread-1] c.g.l.ui.BackgroundChangerUI             : Failed to start teams-for-linux
+
+java.io.IOException: Cannot run program "teams-for-linux": error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170) ~[na:na]
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089) ~[na:na]
+	at java.base/java.lang.Runtime.exec(Runtime.java:681) ~[na:na]
+	at java.base/java.lang.Runtime.exec(Runtime.java:491) ~[na:na]
+	at java.base/java.lang.Runtime.exec(Runtime.java:366) ~[na:na]
+	at com.grego.linux_images_server.ui.BackgroundChangerUI.lambda$toggleApp$4(BackgroundChangerUI.java:181) ~[classes/:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method) ~[na:na]
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295) ~[na:na]
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225) ~[na:na]
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126) ~[na:na]
+	... 10 common frames omitted
+
+2024-08-09T22:22:33.251-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Starting application using Java 22.0.1 with PID 1274 (started by matheusvictor in /home/matheusvictor/Documents/javaProjects/teams-background-changer)
+2024-08-09T22:22:33.252-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-08-09T22:22:33.647-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-09T22:22:33.653-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-09T22:22:33.653-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-08-09T22:22:33.670-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-09T22:22:33.671-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 398 ms
+2024-08-09T22:22:33.842-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-08-09T22:22:33.846-03:00  INFO 1274 --- [linux-images-server] [pool-1-thread-1] o.s.boot.SpringApplication               : Started application in 0.761 seconds (process running for 2.906)
+2024-08-09T22:22:33.849-03:00 ERROR 1274 --- [linux-images-server] [pool-1-thread-1] c.g.l.ui.BackgroundChangerUI             : Failed to start teams-for-linux
+
+java.io.IOException: Cannot run program "teams-for-linux --customBGServiceBaseUrl=http://localhost:8080 --isCustomBackgroundEnabled=true": error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170) ~[na:na]
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089) ~[na:na]
+	at com.grego.linux_images_server.ui.BackgroundChangerUI.startTeamsForLinux(BackgroundChangerUI.java:203) ~[classes/:na]
+	at com.grego.linux_images_server.ui.BackgroundChangerUI.lambda$startSpringServerAndTeamsForLinux$3(BackgroundChangerUI.java:181) ~[classes/:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method) ~[na:na]
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295) ~[na:na]
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225) ~[na:na]
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126) ~[na:na]
+	... 8 common frames omitted
+
