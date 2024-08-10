@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 
 application.log
+.gitignore
 
 ### STS ###
 .apt_generated
