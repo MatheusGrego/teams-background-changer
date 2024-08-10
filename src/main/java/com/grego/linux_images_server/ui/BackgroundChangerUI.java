@@ -44,7 +44,6 @@ public class BackgroundChangerUI extends JFrame {
         if (!uploadDir.exists()) {
             if (uploadDir.mkdir())
                 log.info("Upload directory created successfully!");
-
         }
 
         setTitle("Teams Background Changer");
