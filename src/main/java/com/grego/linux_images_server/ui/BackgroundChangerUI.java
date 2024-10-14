@@ -196,10 +196,7 @@ public class BackgroundChangerUI extends JFrame {
 
     private void startTeamsForLinux() {
         try {
-            teamsProcess =
-                    new ProcessBuilder(
-                            "teams-for-linux --customBGServiceBaseUrl=http://localhost:8080 --isCustomBackgroundEnabled=true"
-                    ).start();
+            teamsProcess = Runtime.getRuntime().exec("teams-for-linux --customBGServiceBaseUrl=http://localhost:8080 --isCustomBackgroundEnabled=true");
             logTextArea.append("teams-for-linux started...\n");
             log.info("teams-for-linux started...");
         } catch (IOException e) {
